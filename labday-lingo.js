@@ -64,3 +64,12 @@ function indexToString(index) {
     if (index === 8) { return 'ninth'; }
     if (index === 9) { return 'tenth'; }
 }
+
+
+function maxCharacter() {
+    const inputValue = document.getElementById('guess-input').value.length;
+       
+    let label = document.getElementById('input-value');
+    label.innerHTML = 5 - inputValue;
+
+}

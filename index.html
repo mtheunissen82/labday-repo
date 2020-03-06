@@ -69,8 +69,13 @@
                 </div>
             </div>
             <div class="guess__grid">
-                <input id="guess-input" type="text" />
-                <button onclick="guessButtonHandler();">Guess word</button>
+                <div>
+                    <input id="guess-input" type="text" maxlength="5" onInput="maxCharacter()"/>
+                    <button onclick="guessButtonHandler();">Guess word</button>
+                </div>
+                <div>
+                    Max <label id="input-value">5</label> characters
+                </div>
                 <div class="controls-container">
                     <button id="showLetter" class="control-button">
                         <img src="./images/help-svgrepo-com.svg">
