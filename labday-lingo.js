@@ -68,18 +68,18 @@ class Round {
 
       // exact positional match
       if (letter === guessLetter) {
-        guessResult.pushLetter(guessLetter, GuessResult.MATCH);
+        guessResult.pushLetter(guessLetter, this.MATCH);
         continue;
       }
 
       // semi match
       if (this.word.indexOf(guessLetter) !== -1) {
-        guessResult.pushLetter(guessLetter, GuessResult.SEMIMATCH);
+        guessResult.pushLetter(guessLetter, this.SEMIMATCH);
         continue;
       }
 
       // fall through: no match
-      guessResult.pushLetter(guessLetter, GuessResult.NOMATCH)
+      guessResult.pushLetter(guessLetter, this.NOMATCH)
     }
 
     return guessResult;
