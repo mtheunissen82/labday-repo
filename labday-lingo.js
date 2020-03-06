@@ -38,10 +38,13 @@ function guessButtonHandler() {
 function fillGridRow(guessResult) {
     let rowIndexString = indexToString(currentGridRowIndex);
     let rowClass = `grid__row--${rowIndexString}`;
+    let rowElement = document.getElementsByClassName(rowClass)[0];
 
-    let rowElement = document.getElementsByClassName(rowClass);
-    console.log(rowElement);
-    console.log(guessResult);
+    for (let i = 0; i < guessResult.result.length; i++) {
+        let cellElement = rowElement.children[i];
+        cellElement.innerHTML = guessResult.result[i].letter;
+        cellElement.classList.add(`cell--${guessResult.result[i].result.toLowerCase()}ed`);
+    }
     
     currentGridRowIndex++;
 }
