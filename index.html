@@ -9,12 +9,65 @@
     <meta name="description" content="Lingo Game">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="labday-lingo.css">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <script src="labday-lingo-lib.js"></script>
+<<<<<<< HEAD
     <script src="labday-lingo.js"></script>
+=======
+    <script>
+        const words = [
+            'linux',
+            'mouse',
+            'timer',
+            'basic',
+        ];
+
+        let lingoGame;
+
+        /**
+         * Start a new single player game
+         */
+        function startSinglePlayerGame() {
+            var playerOptions = document.getElementById("player-options");
+            var lingoLayout = document.getElementById("lingo__layout");
+            playerOptions.style.display = "none";
+            lingoLayout.style.display = "flex";
+
+            lingoGame = new LingoGame(words);
+            let round = lingoGame.start();
+
+            round.guess("linax");
+            console.log(round.currentAttempt);
+            round.guess("linex");
+            console.log(round.currentAttempt);
+            round.guess("linex");
+            console.log(round.currentAttempt);
+            round.guess("linex");
+            console.log(round.currentAttempt);
+            round.guess("linex");
+            console.log(round.currentAttempt);
+            round.guess("linex");
+            console.log(round.currentAttempt);
+        }
+
+        function guessButtonHandler() {
+            // fetch current guess from input field
+            let guessResult = round.guess(guessWord);
+            console.log(guessResult);
+            // C result op grid
+        }
+
+        let showLetterElement = document.getElementById('showLetter');
+        showLetterElement.addEventListener('click', showLetter());
+        function showLetter() {
+
+        }
+    </script>
+
+>>>>>>> reset button added, life lines added
     <header>
         <h1>Capingo</h1>
     </header>
@@ -71,6 +124,17 @@
             <div class="guess__grid">
                 <input id="guess-input" type="text" />
                 <button onclick="guessButtonHandler();">Guess word</button>
+                <div class="controls-container">
+                    <button id="showLetter" class="control-button">
+                        <img src="./images/help-svgrepo-com.svg">
+                        <p>Show one letter</p>
+                    </button>
+                    <button class="control-button" id="reset-game">
+
+                        <img src="./images/turn-on-reset-svgrepo-com.svg">
+                        <p>Restart</p>
+                    </button>
+                </div>
             </div>
         </div>
     </main>
