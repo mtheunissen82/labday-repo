@@ -14,60 +14,7 @@
 
 <body>
     <script src="labday-lingo-lib.js"></script>
-<<<<<<< HEAD
     <script src="labday-lingo.js"></script>
-=======
-    <script>
-        const words = [
-            'linux',
-            'mouse',
-            'timer',
-            'basic',
-        ];
-
-        let lingoGame;
-
-        /**
-         * Start a new single player game
-         */
-        function startSinglePlayerGame() {
-            var playerOptions = document.getElementById("player-options");
-            var lingoLayout = document.getElementById("lingo__layout");
-            playerOptions.style.display = "none";
-            lingoLayout.style.display = "flex";
-
-            lingoGame = new LingoGame(words);
-            let round = lingoGame.start();
-
-            round.guess("linax");
-            console.log(round.currentAttempt);
-            round.guess("linex");
-            console.log(round.currentAttempt);
-            round.guess("linex");
-            console.log(round.currentAttempt);
-            round.guess("linex");
-            console.log(round.currentAttempt);
-            round.guess("linex");
-            console.log(round.currentAttempt);
-            round.guess("linex");
-            console.log(round.currentAttempt);
-        }
-
-        function guessButtonHandler() {
-            // fetch current guess from input field
-            let guessResult = round.guess(guessWord);
-            console.log(guessResult);
-            // C result op grid
-        }
-
-        let showLetterElement = document.getElementById('showLetter');
-        showLetterElement.addEventListener('click', showLetter());
-        function showLetter() {
-
-        }
-    </script>
-
->>>>>>> reset button added, life lines added
     <header>
         <h1>Capingo</h1>
     </header>
