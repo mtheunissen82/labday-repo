@@ -8,12 +8,18 @@
     <title>Lingo2</title>
     <meta name="description" content="Lingo Game">
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="labday-lingo.css"> 
+    <link rel="stylesheet" href="labday-lingo.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">  
 </head>
 
 <body>
-    <script src="labday-lingo.js"></script>
+    <script src="labday-lingo-lib.js"></script>
+    <script>
+        const lingoGame = new LingoGame(words);
+        let round = lingoGame.start();
+        let result = round.guess('xaaaa');
+        console.log(result);
+    </script>
     <header>
         <h1>Capingo</h1>
     </header>
