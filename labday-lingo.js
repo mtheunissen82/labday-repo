@@ -22,7 +22,7 @@ function startSinglePlayerGame() {
 }
 
 function fillFirstLetter(round) {
-    let firstCell = document.querySelector('.cell--first span');
+    let firstCell = document.querySelector('.cell--first');
     firstCell.innerHTML = round.word.charAt(0);
 }
 
