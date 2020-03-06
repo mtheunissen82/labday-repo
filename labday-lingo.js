@@ -79,3 +79,17 @@ function maxCharacter() {
     label.innerHTML = 5 - inputValue;
 
 }
+
+function resetButtonHandler(){
+    cleanGrid();
+    startSinglePlayerGame();
+}
+
+function cleanGrid(){
+    let cellElements = document.getElementsByClassName('cell');
+    for (let i=0; i < cellElements.length; i++){
+        cellElements[i].innerHTML = '';
+        cellElements[i].classList.remove("cell--matched");
+        cellElements[i].classList.remove("cell--nomatched");        
+    }      
+}

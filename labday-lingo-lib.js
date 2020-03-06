@@ -93,6 +93,7 @@ class Round {
     this.lastGuessResult = guessResult;
     return guessResult;
   }
+  
 }
 
 class GuessResult {

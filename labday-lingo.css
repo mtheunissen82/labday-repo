@@ -118,6 +118,7 @@ h1{
     color: white;
     border: none;
     padding: 10px;
+    font-family: 'Indie Flower', cursive;
 }
 
 .guess__grid button:hover {
