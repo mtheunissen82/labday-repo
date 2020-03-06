@@ -40,14 +40,23 @@ class Round {
   word;
   amountOfattempts = 5;
   currentAttempt = 0;
+  lastGuessResult;
 
   constructor(word, amountOfAttempts = 5) {
     this.word = word;
     this.amountOfAttempts = amountOfAttempts;
   }
 
+  hasAttemptsLeft() {
+    return this.currentAttempt < this.amountOfAttempts;
+  }
+
+  isCompleted() {
+    return !this.hasAttemptsLeft() || (this.lastGuessResult && this.lastGuessResult.isFullMatch())
+  }
+
   guess(guessWord) {
-    if (this.currentAttempt >= this.amountOfAttempts) {
+    if (!this.hasAttemptsLeft()) {
       throw new Error('No more attempts left, round is over.');
     }
 
@@ -81,6 +90,7 @@ class Round {
       guessResult.pushLetter(guessLetter, 'NOMATCH')
     }
 
+    this.lastGuessResult = guessResult;
     return guessResult;
   }
 }
@@ -96,7 +106,7 @@ class GuessResult {
    * Check if there is a full match for this guess.
    * @returns true if there is a full match otherwise false.
    */
-  fullMatch() {
+  isFullMatch() {
     for (let i = 0; i < this.result.length; i++) {
       if (this.result[i].result !== 'MATCH') {
         return false;

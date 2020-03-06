@@ -3,6 +3,8 @@ const words = [
 'mouse',
 'timer',
 'basic',
+'enter',
+'shift',
 ];
 
 let lingoGame;
@@ -17,7 +19,7 @@ function startSinglePlayerGame() {
     playerOptions.style.display = "none";
     lingoLayout.style.display = "flex";
 
-    lingoGame = new LingoGame(words);
+    lingoGame = new LingoGame(words.pop());
     let round = lingoGame.start();
     fillFirstLetter(round);
 }
@@ -33,6 +35,10 @@ function guessButtonHandler() {
 
     let guessResult = lingoGame.currentRound.guess(guessWord);
     fillGridRow(guessResult);
+
+    if (lingoGame.currentRound.isCompleted()) {
+        alert('Round is over. Thanks for playing!');
+    }
 }
 
 function fillGridRow(guessResult) {
