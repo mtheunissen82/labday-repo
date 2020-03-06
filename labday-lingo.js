@@ -36,7 +36,7 @@ function guessButtonHandler() {
 }
 
 function fillGridRow(guessResult) {
-    let rowClass = `grid__row--${indexToString(rowIndexString)}`;
+    let rowClass = `grid__row--${indexToString(currentGridRowIndex)}`;
     let rowElement = document.getElementsByClassName(rowClass)[0];
 
     if (!rowElement) {
