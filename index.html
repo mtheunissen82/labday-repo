@@ -19,13 +19,24 @@
         let round = lingoGame.start();
         let result = round.guess('xaaaa');
         console.log(result);
+
+        
+        /**
+         * Start a new single player game
+         */
+        function startSinglePlayerGame() {
+            var playerOptions = document.getElementById("player-options");
+            var lingoLayout = document.getElementById("lingo__layout");
+            playerOptions.style.display = "none";
+            lingoLayout.style.display = "flex";
+        }
     </script>
     <header>
         <h1>Capingo</h1>
     </header>
     <main>
-        <div class="player-options">
-            <button class="single-player-option">
+        <div id="player-options">
+            <button onclick="startSinglePlayerGame()" class="single-player-option">
                 <img src="./images/gamepad-svgrepo-com.svg">
                 <div>Single Player</div>
             </button>
@@ -35,42 +46,42 @@
             </button>
         </div>
 
-        <div class="lingo__layout">
+        <div id="lingo__layout">
             <div class="lingo__grid">
                 <div class="grid__row grid__row--first">
                     <div class="cell cell--first"><span>A</span></div>
-                    <div class="cell cell--second cell--correct"><span>B</span></div>
-                    <div class="cell cell--third"><span>C</span></div>
-                    <div class="cell cell--fourth"><span>D</span></div>
-                    <div class="cell cell--fifth"><span>E</span></div>
+                    <div class="cell cell--second"><span>.</span></div>
+                    <div class="cell cell--third"><span>.</span></div>
+                    <div class="cell cell--fourth"><span>.</span></div>
+                    <div class="cell cell--fifth"><span>.</span></div>
                 </div>
                 <div class="grid__row grid__row--second">
-                    <div class="cell cell--first"><span>A</span></div>
-                    <div class="cell cell--second"><span>B</span></div>
-                    <div class="cell cell--third cell--guessed"><span>C</span></div>
-                    <div class="cell cell--fourth"><span>D</span></div>
-                    <div class="cell cell--fifth"><span>E</span></div>
+                    <div class="cell cell--first"><span></span></div>
+                    <div class="cell cell--second"><span></span></div>
+                    <div class="cell cell--third"><span></span></div>
+                    <div class="cell cell--fourth"><span></span></div>
+                    <div class="cell cell--fifth"><span></span></div>
                 </div>
                 <div class="grid__row grid__row--third">
-                    <div class="cell cell--first">A</div>
-                    <div class="cell cell--second">B</div>
-                    <div class="cell cell--third">C</div>
-                    <div class="cell cell--fourth">D</div>
-                    <div class="cell cell--fifth">E</div>
+                    <div class="cell cell--first"><span></span></div>
+                    <div class="cell cell--second"><span></span></div>
+                    <div class="cell cell--third"><span></span></div>
+                    <div class="cell cell--fourth"><span></span></div>
+                    <div class="cell cell--fifth"><span></span></div>
                 </div>
                 <div class="grid__row grid__row--fourth">
-                    <div class="cell cell--first">A</div>
-                    <div class="cell cell--second">B</div>
-                    <div class="cell cell--third">C</div>
-                    <div class="cell cell--fourth">D</div>
-                    <div class="cell cell--fifth">E</div>
+                    <div class="cell cell--first"><span></span></div>
+                    <div class="cell cell--second"><span></span></div>
+                    <div class="cell cell--third"><span></span></div>
+                    <div class="cell cell--fourth"><span></span></div>
+                    <div class="cell cell--fifth"><span></span></div>
                 </div>
                 <div class="grid__row grid__row--fifth">
-                    <div class="cell cell--first">A</div>
-                    <div class="cell cell--second">B</div>
-                    <div class="cell cell--third">C</div>
-                    <div class="cell cell--fourth">D</div>
-                    <div class="cell cell--fifth">E</div>
+                    <div class="cell cell--first"><span></span></div>
+                    <div class="cell cell--second"><span></span></div>
+                    <div class="cell cell--third"><span></span></div>
+                    <div class="cell cell--fourth"><span></span></div>
+                    <div class="cell cell--fifth"><span></span></div>
                 </div>
             </div>
             <div class="guess__grid">

@@ -64,47 +64,66 @@ h1{
 }
 
 
-
 /* Lingo layout */
 
-
-.lingo__layout {
+#lingo__layout {
     width: 100%;
     display: none;
-    }
-    
-    .lingo__grid {
-    }
-    
-    .guess__grid {
-    }
-    
-    .grid__row {
+}
+
+.lingo__grid,
+.guess__grid {
+    width: 50%;
+}
+
+.grid__row {
     padding-left: 15px;
     padding-right: 15px;
-    }
-    
-    .cell {
+}
+
+.cell {
     display: table-cell;
-    padding: 25px;
     color: white;
     font-weight: bold;
     text-transform: uppercase;
     border: 1px solid grey;
     background-color: blue;
     font-size: 24px;
-    }
-    
-    .cell--correct {
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.cell--matched {
     background-color: orangered;
-    }
-    
-    .cell--guessed span {
+}
+
+.cell--semimatched span {
     background-color: yellow;
     border-radius: 50px;
     padding: 25px;
-    }
-    
-    .cell.cell--guessed {
+}
+
+.cell.cell--guessed {
     padding: 0;
-    }
+}
+
+.guess__grid input {
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.guess__grid button {
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+.guess__grid button:hover {
+    opacity: .8;
+    cursor: pointer;
+}
