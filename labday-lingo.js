@@ -1,31 +1,46 @@
-const wordList = [
+const words = [
   'linux',
   'mouse',
   'timer',
   'basic',
 ];
 
-class GuessResult {
-  result = [];
+class LingoGame {
+  words = [];
+  numberOfRounds = -1;
+  currentRound;
 
-  pushLetter(letter, result) {
-    this.result.push({ 'letter': letter, 'result': result });
-  }
+  defaultRoundConfig = {
+    attempts: 5
+  };
+
+  roundConfig = {};
 
   /**
-   * Check if there is a full match for this guess.
-   * @returns true if there is a full match otherwise false.
+   * Construct a Lingo game
+   * @param {array} wordList A list of all allowed words for this game.
+   * @param {string} numberOfRounds The number of rounds which should be played (-1 for infinity).
+   * @param {object} roundConfig Object which contains round configuration.
    */
-  fullMatch() {
-    for (let i = 0; i < this.result.length; i++) {
-      if (this.result[i].result !== 'MATCH') {
-        return false;
-      }
-    }
-
-    return true;
+  constructor(words, numberOfRounds = -1, roundConfig) {
+    this.words = words;
+    this.numberOfRounds = numberOfRounds;
+    this.roundConfig = roundConfig || this.defaultRoundConfig;
   }
 
+  start() {
+    this.currentRound = new Round("linux", this.roundConfig.attempts);
+    return this.currentRound;
+  }
+
+  nextRound() {
+    this.currentRound = new Round("linux", this.roundConfig.attempts);
+    return this.currentRound;
+  }
+
+  end() {
+    // implement me
+  }
 }
 
 class Round {
@@ -76,11 +91,25 @@ class Round {
   }
 }
 
-let round = new Round("linux");
+class GuessResult {
+  result = [];
 
-try {
-  let result = round.guess("xaaaa");
-  console.log(result);
-} catch (e) {
-  console.log(e);
+  pushLetter(letter, result) {
+    this.result.push({ 'letter': letter, 'result': result });
+  }
+
+  /**
+   * Check if there is a full match for this guess.
+   * @returns true if there is a full match otherwise false.
+   */
+  fullMatch() {
+    for (let i = 0; i < this.result.length; i++) {
+      if (this.result[i].result !== 'MATCH') {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
 }
