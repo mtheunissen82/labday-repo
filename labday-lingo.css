@@ -1,0 +1,65 @@
+/*Layout*/
+
+body{
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main{
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Header Styles*/
+h1{
+    font-size: 36px;
+    line-height:40px;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    padding:20px;
+    border-bottom: 4px solid lightblue;
+}
+
+/*Select Options Styles*/
+.single-player-option,
+.multiple-players-option{
+    flex: 0 0 180px;
+    background: lightblue;
+    margin: 25px;
+    font-family: 'Indie Flower', cursive;
+    font-size:20px;
+    line-height: 24px;
+    border:none;
+    padding:20px;
+    cursor:pointer;
+}
+
+.single-player-option:disabled,
+.multiple-players-option:disabled{
+    background-color:#dcebef;
+    cursor:not-allowed;
+}
+
+.single-player-option img,
+.multiple-players-option img{
+    width: 50px;
+}
+
+.player-options{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap:wrap;
+}
+
+/*Footer styles*/
+
+.footer-container{
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+    padding:20px;
+    border-top: 4px solid lightblue;
+}
