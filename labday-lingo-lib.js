@@ -1,10 +1,3 @@
-const words = [
-  'linux',
-  'mouse',
-  'timer',
-  'basic',
-];
-
 class LingoGame {
   words = [];
   numberOfRounds = -1;
@@ -45,19 +38,20 @@ class LingoGame {
 
 class Round {
   word;
-  attempts = 5;
+  amountOfattempts = 5;
+  currentAttempt = 0;
 
-  constructor(word, attempts = 5) {
+  constructor(word, amountOfAttempts = 5) {
     this.word = word;
-    this.attempts = attempts;
+    this.amountOfAttempts = amountOfAttempts;
   }
 
   guess(guessWord) {
-    if (this.attempts < 1) {
+    if (this.currentAttempt >= this.amountOfAttempts) {
       throw new Error('No more attempts left, round is over.');
     }
 
-    this.attempts--;
+    this.currentAttempt++;
 
     if (guessWord.length !== this.word.length) {
       throw new Error(
