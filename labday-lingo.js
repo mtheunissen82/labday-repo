@@ -21,7 +21,7 @@ class GuessResult {
   }
 
   pushLetter(letter, result) {
-    result.push({ 'letter': letter, 'result': result });
+    this.result.push({ 'letter': letter, 'result': result });
   }
 
   /**
@@ -29,7 +29,7 @@ class GuessResult {
    * @returns true if there is a full match otherwise false.
    */
   fullMatch() {
-    for (i = 0; i < this.result.length; i++) {
+    for (let i = 0; i < this.result.length; i++) {
       if (this.result[i].result !== GuessResult.MATCH) {
         return false;
       }
@@ -50,7 +50,7 @@ class Round {
   }
 
   guess(guessWord) {
-    if (attempts < 1) {
+    if (this.attempts < 1) {
       throw new Error('No more attempts left, round is over.');
     }
 
@@ -62,7 +62,7 @@ class Round {
 
     let guessResult = new GuessResult();
 
-    for (i = 0; i < guessWord.length; i++) {
+    for (let i = 0; i < guessWord.length; i++) {
       let letter = this.word[i];
       let guessLetter = guessWord[i];
 
