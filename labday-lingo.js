@@ -36,9 +36,12 @@ function guessButtonHandler() {
 }
 
 function fillGridRow(guessResult) {
-    let rowIndexString = indexToString(currentGridRowIndex);
-    let rowClass = `grid__row--${rowIndexString}`;
+    let rowClass = `grid__row--${indexToString(rowIndexString)}`;
     let rowElement = document.getElementsByClassName(rowClass)[0];
+
+    if (!rowElement) {
+        throw new Error(`Unable to find row element for class '${rowClass}'`);
+    }
 
     for (let i = 0; i < guessResult.result.length; i++) {
         let cellElement = rowElement.children[i];
@@ -55,4 +58,9 @@ function indexToString(index) {
     if (index === 2) { return 'third'; }
     if (index === 3) { return 'fourth'; }
     if (index === 4) { return 'fifth'; }
+    if (index === 5) { return 'sixth'; }
+    if (index === 6) { return 'seventh'; }
+    if (index === 7) { return 'eighth'; }
+    if (index === 8) { return 'ninth'; }
+    if (index === 9) { return 'tenth'; }
 }
