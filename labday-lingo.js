@@ -8,18 +8,6 @@ const wordList = [
 class GuessResult {
   result = [];
 
-  get MATCH() {
-    return 1;
-  }
-
-  get NOMATCH() {
-    return 2;
-  }
-
-  get SEMIMATCH() {
-    return 3;
-  }
-
   pushLetter(letter, result) {
     this.result.push({ 'letter': letter, 'result': result });
   }
@@ -30,7 +18,7 @@ class GuessResult {
    */
   fullMatch() {
     for (let i = 0; i < this.result.length; i++) {
-      if (this.result[i].result !== GuessResult.MATCH) {
+      if (this.result[i].result !== 'MATCH') {
         return false;
       }
     }
@@ -57,7 +45,9 @@ class Round {
     this.attempts--;
 
     if (guessWord.length !== this.word.length) {
-      throw new Error(`Invalid guess word length: ${guessWord.length} should be: ${this.word.length}`)
+      throw new Error(
+        `Invalid guess word length: ${guessWord.length} should be: ${this.word.length}`
+      )
     }
 
     let guessResult = new GuessResult();
@@ -68,18 +58,18 @@ class Round {
 
       // exact positional match
       if (letter === guessLetter) {
-        guessResult.pushLetter(guessLetter, this.MATCH);
+        guessResult.pushLetter(guessLetter, 'MATCH');
         continue;
       }
 
       // semi match
       if (this.word.indexOf(guessLetter) !== -1) {
-        guessResult.pushLetter(guessLetter, this.SEMIMATCH);
+        guessResult.pushLetter(guessLetter, 'SEMIMATCH');
         continue;
       }
 
       // fall through: no match
-      guessResult.pushLetter(guessLetter, this.NOMATCH)
+      guessResult.pushLetter(guessLetter, 'NOMATCH')
     }
 
     return guessResult;
