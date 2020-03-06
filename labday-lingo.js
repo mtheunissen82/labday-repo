@@ -19,6 +19,12 @@ function startSinglePlayerGame() {
 
     lingoGame = new LingoGame(words);
     let round = lingoGame.start();
+    fillFirstLetter(round);
+}
+
+function fillFirstLetter(round) {
+    let firstCell = document.querySelector('.cell--first');
+    firstCell.innerHTML = round.word.charAt(0);
 }
 
 function guessButtonHandler() {
@@ -36,8 +42,6 @@ function fillGridRow(guessResult) {
     let rowElement = document.getElementsByClassName(rowClass);
     console.log(rowElement);
     console.log(guessResult);
-
-    for (let i = 0; )
     
     currentGridRowIndex++;
 }
